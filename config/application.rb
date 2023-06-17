@@ -36,8 +36,8 @@ module Recipes
 
     config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
       allow do
-        origins '*'
-        resource '*', :headers => :any, :methods => [:get, :post, :options]
+        origins 'localhost:5173'
+        resource '*', headers: :any, methods: [:get, :post, :delete, :put, :patch, :options, :head]
       end
     end
   end

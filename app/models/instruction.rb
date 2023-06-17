@@ -1,17 +1,7 @@
 class Instruction < ApplicationRecord
   belongs_to :recipe
 
-  def new
-    @instruction = Instruction.new
+  def to_s
+    "Step:#{self.step} - Body:#{self.body} "
   end
-
-  def create
-    @recipe = Recipe.find(params[:recipe_id])
-    @instruction = @recipe.instructions.create(ingredient_params)
-  end
-
-  private
-    def instruction_params
-      params.require(:instruction).permit(:step, :body)
-    end
 end
